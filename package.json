@@ -22,9 +22,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "https://VladimirZimin.github.io/search-images-hooks",
   "eslintConfig": {
     "extends": [
       "react-app",
