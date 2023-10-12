@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+// import InfiniteScroll from "react-infinite-scroll-component";
+
 import Button from "components/Button";
 import ImageGallery from "components/ImageGallery";
 import Searchbar from "components/Searchbar";
 import api from "services/api";
-import "react-toastify/dist/ReactToastify.css";
 import Modal from "components/Modal";
 import Spinner from "components/Loader";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const Status = {
   IDLE: "idle",
@@ -101,7 +104,15 @@ const App = () => {
       <ToastContainer />
       <Searchbar onSubmit={handleSearchFormSubmit} />
       {isLoading && <Spinner />}
+
+      {/* <InfiniteScroll
+        dataLength={images.length}
+        next={handleLoadMore}
+        hasMore={true}
+      > */}
       <ImageGallery images={images} onClickImg={handleClickImage} />
+      {/* </InfiniteScroll> */}
+
       {images.length > 1 && images.length !== totalHits && (
         <Button onLoadMore={handleLoadMore} />
       )}
